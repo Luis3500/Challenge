@@ -32,7 +32,7 @@ public class ListFragment extends Fragment {
         mList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getActivity(), Main2Activity.class);
+                Intent intent = new Intent(getActivity(), DetailActivity.class);
                 intent.putExtra("ads",adapter.getItem(i));
                 startActivity(intent);
             }

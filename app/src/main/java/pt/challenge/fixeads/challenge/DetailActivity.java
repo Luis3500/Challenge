@@ -6,12 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-public class Main2Activity extends AppCompatActivity {
+public class DetailActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_details);
         Intent intent = getIntent();
         Ads mAds = (Ads) intent.getExtras().get("ads");
         ((TextView)findViewById(R.id.title)).setText(mAds.getTitle());

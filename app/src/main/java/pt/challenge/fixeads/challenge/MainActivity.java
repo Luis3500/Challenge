@@ -32,7 +32,7 @@ import java.util.List;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
-public class MapsActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     private GoogleMap mMap;
     private ArrayList<Ads> mListAds = new ArrayList<>();
