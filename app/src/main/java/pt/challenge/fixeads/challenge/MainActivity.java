@@ -19,6 +19,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.fitness.data.Field;
 import com.google.android.gms.maps.GoogleMap;
 
 import org.json.JSONArray;
@@ -72,6 +73,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        getDataServer(adapter);
+
+    }
+
+    private void getDataServer(final PagerAdapter adapter) {
         final ProgressDialog Dialog = new ProgressDialog(this);
         Dialog.setMessage("Downloading source...");
         Dialog.show();
@@ -113,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
                 Dialog.dismiss();
             }
-            }, new Response.ErrorListener() {
+        }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("Challenge", "Error: " + error.getMessage());
@@ -126,7 +132,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Adding request to request queue
         queue.add(jsonObjReq);
-
     }
 
 }

@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+
 import io.realm.Realm;
 import io.realm.RealmResults;
 
@@ -33,7 +35,11 @@ public class ListFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getActivity(), DetailActivity.class);
-                intent.putExtra("ads",adapter.getItem(i));
+                intent.putExtra("index",i);
+                ArrayList<Ads> mAds = new ArrayList<>();
+                for(int j = 0; j < adapter.getCount(); j++)
+                    mAds.add(adapter.getItem(j));
+                intent.putParcelableArrayListExtra("ads", mAds);
                 startActivity(intent);
             }
         });
